@@ -8,6 +8,11 @@
 
         <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox
         </item>
+
+        <item name="materialButtonStyle">@style/AppTheme.MaterialComponents.Button</item>
     </style>
 
+    <style name="AppTheme.MaterialComponents.Button" parent="Widget.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+    </style>
 </resources>
