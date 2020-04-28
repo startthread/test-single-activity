@@ -16,7 +16,9 @@
         android:id="@+id/text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:hint="Enter value for first">
 
         <com.google.android.material.textfield.TextInputEditText
