@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         sharedViewModel.sharedData.observe(this, Observer {
             when (it.first) {
                 FirstFragment.EXTRA_RESULT_FIRST -> {
-                    handleFIrstFragmentResult(it)
+                    handleFirstFragmentResult(it)
                 }
 
                 SecondFragment.EXTRA_RESULT_SECOND -> {
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         ).navigate(R.id.action_to_confirmationFragment, bundle)
     }
 
-    private fun handleFIrstFragmentResult(it: Pair<String, Any>) {
+    private fun handleFirstFragmentResult(it: Pair<String, Any>) {
         val result = it.second as FirstFragment.Result
         updateResult(it.first, result.value)
 
