@@ -1,4 +1,4 @@
-package com.startthread.singleactivity.second
+package com.startthread.singleactivity.confirmation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,28 +8,28 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.startthread.singleactivity.SharedViewModel
-import com.startthread.singleactivity.databinding.FragmentSecondBinding
+import com.startthread.singleactivity.databinding.FragmentConfirmationBinding
 
-class SecondFragment : Fragment() {
-
+class ConfirmationFragment : Fragment() {
     data class Result(val value: String)
 
     companion object {
         const val ARG_INPUT_VALUE = "ARG_INPUT_VALUE"
 
-        const val EXTRA_RESULT_SECOND = "EXTRA_RESULT_SECOND"
+        const val EXTRA_RESULT_CONFIRMATION = "EXTRA_RESULT_CONFIRMATION"
     }
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
-    private val viewModel: SecondViewModel by viewModels()
+    private val viewModel: ConfirmationViewModel by viewModels()
 
-    private lateinit var binding: FragmentSecondBinding
+    private lateinit var binding: FragmentConfirmationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSecondBinding.inflate(inflater, container, false)
+
+        binding = FragmentConfirmationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,10 +41,8 @@ class SecondFragment : Fragment() {
 
     private fun setupView() {
         binding.doneButton.setOnClickListener {
-            val result = Result(binding.textInputLayout.editText?.text.toString())
-
-            sharedViewModel.sharedData.value = Pair(EXTRA_RESULT_SECOND, result)
+            val result: Boolean = true
+            sharedViewModel.sharedData.value = Pair(EXTRA_RESULT_CONFIRMATION, result)
         }
     }
 }
-
