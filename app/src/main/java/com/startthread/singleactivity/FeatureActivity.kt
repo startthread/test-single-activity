@@ -1,24 +1,27 @@
 package com.startthread.singleactivity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation.findNavController
 import com.startthread.singleactivity.confirmation.ConfirmationFragment
-import com.startthread.singleactivity.databinding.ActivityMainBinding
+import com.startthread.singleactivity.databinding.ActivityFeatureBinding
 import com.startthread.singleactivity.first.FirstFragment
 import com.startthread.singleactivity.second.SecondFragment
 
-class MainActivity : AppCompatActivity() {
+private const val TAG = "FeatureActivity"
+
+class FeatureActivity : AppCompatActivity() {
 
     private val sharedViewModel: SharedViewModel by viewModels()
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityFeatureBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityFeatureBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
@@ -27,6 +30,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupLiveData() {
         sharedViewModel.sharedData.observe(this, Observer {
+            Log.d(TAG, it.first)
+
             when (it.first) {
                 FirstFragment.EXTRA_RESULT_FIRST -> {
                     handleFirstFragmentResult(it)
